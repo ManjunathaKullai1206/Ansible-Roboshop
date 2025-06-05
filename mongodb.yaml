@@ -1,6 +1,6 @@
 - name: Install mongodb
   hosts: mongodb
-  become: true
+  become: yes
 
   tasks:
   - name: Copy maongodb repo file
