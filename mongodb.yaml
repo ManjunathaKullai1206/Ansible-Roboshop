@@ -18,3 +18,14 @@
       name: mongod
       state: started
       enabled: true
+
+  - name: Allow remote connection
+    ansible.builtin.replace:
+      path: /etc/mongod.conf
+      regexp: '127.0.0.1'
+      replace: '0.0.0.0'
+
+  - name: Restart mongodb service
+    ansible.builtin.systemd:
+      name: mongod
+      state: restarted
